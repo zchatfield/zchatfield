@@ -8,11 +8,44 @@ Colorblind safe color palette from colorbrewer2.org.
 */
 
 body {
-  background-color: #f5f5f5;
+  background-color: #dfc27d;
   color: #a6611a;
   text-align: center;
+  margin: 0;
 }
 
 h1 {
   color:#018571;
+  padding: 5px;
+  margin: 0;
+}
+
+#body-container{
+  background-color: #f5f5f5;
+  max-width: 1000px;
+  margin: auto;
+  height:100vh;
+  border: 2px solid #018571;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+#header{
+  background-color: #80cdc1
+}
+
+#profile-picture{
+  float:left;
+}
+
+#welcome-text{
+  padding-top: 25px;
+  font-size: 25px;
+}
+
+#research-interests{
+  text-align: left;
+  font-size: 25px;
+  position: relative;
+  left: 50px
 }
