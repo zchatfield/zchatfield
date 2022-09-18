@@ -1,3 +1,12 @@
+/*
+Colorblind safe color palette from colorbrewer2.org.
+#a6611a - brown
+#dfc27d - tan
+#f5f5f5 - white
+#80cdc1 - light green
+#018571 - dark green
+*/
+
 body {
   background-color: #f5f5f5;
   color: #a6611a;
