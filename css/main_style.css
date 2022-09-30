@@ -71,3 +71,10 @@ and also changed (increased) the size of the text. */
   position: relative;
   left: 50px
 }
+
+#copyright {
+  position: absolute;
+  width: 1000px;
+  text-align: center;
+  bottom: 20px;
+}

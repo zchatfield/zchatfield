@@ -14,6 +14,7 @@
       <img src=images/profile-picture.jpeg width=500px height=500px/>
     </div>
     <div id="welcome-text">
+      My name is Zoe.<br>
       Welcome to my webpage. <br>
       I am a student in the
       <a href="https://www.clarku.edu/schools/idce/">IDCE Department</a> at
@@ -29,7 +30,22 @@
     </div>
   </div>
 </body>
-<div id="footer">
-  <footer>© 2022 by Zoe Chatfield</footer>
+
+  <div id="copyright">
+  <script>
+    // this is used to embeds code - usually referencing JavaScript
+    var today = new Date();
+    // this is used to identify what today's date is at the time of
+    //opening the website
+    var year = today.getFullYear();
+    // this identifies what the year is on the date of accessing the website
+    document.writeln("Copyright &copy; " + year);
+  </script>
+
+</div>
 </div>
 </htmL>
+
+<!-- OLD FOOTER CODE:
+<div id="footer">
+<footer>© 2022 by Zoe Chatfield</footer> -->
