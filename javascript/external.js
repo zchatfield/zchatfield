@@ -5,6 +5,19 @@
 document.write(' '+user_name+'!');*/
 
 //LAB 4
+var webmaps =
+[
+  ["Oil Spill Toolkit",
+    "https://www.glo.texas.gov/ost/-,
+    "The Oil Spill Toolkit developed by Enterprise Technology Solutions"
+    ],
+  ["Texas Ecosystems Analytical Mapper",
+    "http://towd.texas.gov/gis/teamr",
+    "The Texas Parks and Wildlife's Landscape Ecology program developed"
+    ]
+];
+
+
 function welcome()
 
 {
@@ -20,15 +33,27 @@ message = "<hi>Hello, welcome to my webpage, " + user_name + "!</h1>"
 return message
 
 }
-
+/*
 function webmap_table(){
   document.write("<table width=100%>")
-  for (var row = 0; row < 2; row++) {
+  for (var row = 0; row < webmaps.length; row++) {
     document.write("<tr>");
-    for(var column = 0; column < 3; column++){
-      document.write("<td>"+row+","+column+"</td>");
+  for(var column = 0; column < webmaps[0].length; column++){
+      document.write("<td>"+webmaps[row][column]+"</td>");
     }
   document.write('</tr>')
   }
 document.write('</table>')
+} */
+
+function webmap_table(){
+    document.write("<table width=100%>")
+  for(var row = 0; row <  webmaps.length; row++){
+        document.write("<tr>");
+    for(var column = 0; column < webmaps[0].length; column++){
+          document.write("<td>"+webmaps[row][column]+"</td>");
+        }
+  document.write('</tr>')
+    }
+  document.write('</table>')
 }
