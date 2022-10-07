@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>KML Click Capture Sample</title>
+    <style>
+      html, body {
+        height: 500px;
+        padding: 0;
+        margin: 0;
+        }
+      #map {
+       height: 500px;
+       width: 100%;
+       overflow: hidden;
+       float: left;
+       border: thin solid #333;
+       }
+
+       }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="capture"></div>
+    <script>
+      var map;
+      var src = 'https://doc-0g-ag-docs.googleusercontent.com/docs/securesc/1prl645m9lt47ruprv4feubtsg2odlh3/9h5p5li9n54b08brm7qg9kjjkv0hm8lp/1633306350000/03714220900174605065/03714220900174605065/1_1pIUjJcOSWLoRfxIDr4qO8g3uXj1Csa?e=download&authuser=0&nonce=9hvf5kl0ckibq&user=03714220900174605065&hash=7p3r1teabrme4fmmr08ao4ttj176f4p0';
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: new google.maps.LatLng(42.252346, -71.824669),
+          zoom: 16,
+          mapTypeId: 'satellite'
+        });
+
+        var kmlLayer = new google.maps.KmlLayer(src, {
+          suppressInfoWindows: true,
+          preserveViewport: false,
+          map: map
+        });
+
+    const image =
+          "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+      const beachMarker = new google.maps.Marker({
+          position: { lat: 42.252346, lng: -71.824669 },
+          map,
+          icon: image,
+        });
+
+    marker.addListener('click', function() {
+      map.setZoom(8);
+      map.setCenter(marker.getPosition());
+        });
+
+window.initMap = initMap;
+
+    const contentString =
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+          "</div>" +
+            '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
+            '<div id="bodyContent">' +
+            "<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large " +
+            "sandstone rock formation in the southern part of the " +
+            "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
+            "south west of the nearest large town, Alice Springs; 450&#160;km " +
+            "(280&#160;mi) by road. Kata Tjuta and Uluru are the two major " +
+            "features of the Uluru - Kata Tjuta National Park. Uluru is " +
+            "sacred to the Pitjantjatjara and Yankunytjatjara, the " +
+            "Aboriginal people of the area. It has many springs, waterholes, " +
+            "rock caves and ancient paintings. Uluru is listed as a World " +
+            "Heritage Site.</p>" +
+            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
+            "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
+            "(last visited June 22, 2009).</p>" +
+            "</div>" +
+            "</div>";
+
+      const infowindow = new google.maps.InfoWindow({
+            content: contentString,
+          });
+
+      const marker = new google.maps.Marker({
+            position: uluru,
+            map,
+            title: "Uluru (Ayers Rock)",
+          });
+
+          marker.addListener("click", () => {
+            infowindow.open({
+              anchor: marker,
+              map,
+              shouldFocus: true,
+            });
+          });
+        }
+      }
+    </script>
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9PppYNHDK48rUyGSbtQ3Nd7VCYiy92aI&callback=initMap">
+    </script>
+  </body>
+</html>
