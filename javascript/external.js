@@ -25,7 +25,7 @@ var webmaps =
     "https://earth.google.com/",
     "GoogleEarth has several functions available on it, but I think the primary purpose for it is for projects or planning that involves multiple places or a span of space in an area."
   ],
-  ["ArcGis",
+  ["ArcGIS",
     "https://www.arcgis.com/apps/mapviewer/index.html",
     "In some ways, the user experience of this platform is similar to GoogleEarth. However, there are far more functional options, and they’re all geared specifically toward spatial analysis, data visualization, and uses that are not for the general public but instead for those who are trained in GIS.",
   ]
