@@ -44,15 +44,47 @@ message = "<hi>Hello, welcome to my webpage, " + user_name + "!</h1>"
 return message
 }
 
+function area_calculator()
+{
+ //document.getElementById("area").innerHTML = "I have changed!";
+ alert("Hello")
+}
+
 function webmap_table()
 {
   document.write("<table width=100%>")
   for(var row = 0; row < webmaps.length; row++){
-    document.write("<tr>");
+    //if
+    document.write("<tr style='color:#80cdc1'>")
+    //else };     ///STYLING
       for(var column = 0; column < webmaps[0].length; column++){
         document.write("<td>"+webmaps[row][column]+"</td>");
-        }
+      }
   document.write('</tr>')
   }
 document.write('</table>')
 }
+
+/*
+function area-calculator()
+{
+  document.math()
+}
+
+/*
+function altrows(grey,white){
+  var tableElements=document.getElementsByTagName("webmap_table");
+  for(var j = 0; j<tableElements.lenghth; j++) {
+    var table = tableElements[j];
+    var rows = table.getElementsByTagName("tr");
+    for(var i = 0; i<=rows.length; i++) {
+      if(i%2==0){
+        rows[i].style.backgroundColor = grey;
+      }
+      else{
+        rows[i].style.backgroundColor = white;
+      }
+      }
+    }
+  }
+} */
