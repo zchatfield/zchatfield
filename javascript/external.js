@@ -44,19 +44,25 @@ message = "<hi>Hello, welcome to my webpage, " + user_name + "!</h1>"
 return message
 }
 
+// STILL WORKING ON GETTING THIS TO WORK CORRECTLY
 function area_calculator()
-{
+{ let a = length
+  let b = width
+  let area = a*b
+  document.write("area")
+}
  //document.getElementById("area").innerHTML = "I have changed!";
- alert("Hello")
 }
 
+// STILL WORKING ON GETTING THIS TO WORK CORRECTLY
 function webmap_table()
 {
   document.write("<table width=100%>")
   for(var row = 0; row < webmaps.length; row++){
-    //if
-    document.write("<tr style='color:#80cdc1'>")
-    //else };     ///STYLING
+      //  if (row==1){console.log(style = "color: #80cdc1")};
+    //    else {console.log(style = "color: #dfc27d"};
+          ///styling
+      document.write("<tr>");
       for(var column = 0; column < webmaps[0].length; column++){
         document.write("<td>"+webmaps[row][column]+"</td>");
       }
