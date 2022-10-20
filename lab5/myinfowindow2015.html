@@ -17,9 +17,9 @@
 // When the user clicks the marker, an info window opens.
 
 function initialize() {
-  var myLatlng = new google.maps.LatLng(40.3543,-94.8846);
+  var myLatlng = new google.maps.LatLng(41.739451692179074, -72.69846557492707);
   var mapOptions = {
-    zoom: 14,
+    zoom: 17,
     center: myLatlng
   };
 
@@ -48,9 +48,9 @@ function initialize() {
 
   var contentString =
     '<div id="content">'+
-        'This is the Garrett Strong (GS) Building. '+
-      'Dr. Ming\'s office is right in this building. <br>'+
-      'His office number is GS 1333.'+
+        'This is Free Center. <br> '+
+      'It is a former library building. <br>'+
+      'It is now where I run a community space.'+
       '</div>';
 
   var infowindow = new google.maps.InfoWindow(
@@ -62,7 +62,7 @@ function initialize() {
   var marker = new google.maps.Marker({
       position: myLatlng,
       map: map,
-      title: 'Garrett Strong Building'
+      title: 'Free Center'
   });
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.open(map,marker);
