@@ -5,3 +5,38 @@
   width: 100%;
   /* The width is the width of the web page */
 }
+
+/*
+Colorblind safe color palette from colorbrewer2.org.
+#a6611a - brown
+#dfc27d - tan
+#f5f5f5 - white
+#80cdc1 - light green
+#018571 - dark green
+*/
+
+body {
+/* 4.	This changed the spacing of the header area to the top of the webpage
+(removing the previous spacing that was there). */
+  background-color: #dfc27d;
+  color: #a6611a;
+  text-align: center;
+  margin: 0;
+}
+
+h1 {
+/* 2.	This changed the distance between the header and the section below it,
+which was the profile picture. */
+  color:#018571;
+  padding: 5px;
+  margin: 0;
+}
+#body-container{
+  background-color: #f5f5f5;
+  max-width: 1000px;
+  margin: center;
+  height:100vh;
+  border: 2px solid #018571;
+  border-radius: 25px;
+  overflow: scroll;
+}
