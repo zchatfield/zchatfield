@@ -1,0 +1,1 @@
+wepmap_token = 'sk.eyJ1IjoiemNoYXRmaWVsZCIsImEiOiJjbDlvd3ZxZmQwa28yM3pwOHZkdjQ1d3Z0In0.kKi0tKvDS5UyLcHEcYqatA'

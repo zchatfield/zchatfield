@@ -71,6 +71,18 @@ function webmap_table()
 document.write('</table>')
 }
 
+<script>
+  var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?
+  access_token={accessToken}',
+  {
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    accessToken: mapbox_access_token,
+  }).addTo(mymap);
+</script>
+
 /*
 function area-calculator()
 {
