@@ -1,35 +1,28 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content=""width=device-width, initial-scale=1.9">
-  <link
-        rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
-        integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
-        crossorigin=""/>
-  <script
-        src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
-        integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
-        crossorigin=""/>
-  </script>
 
-  <title>Zoe Chatfield</title>
+<head>
   <!-- All styling for this HTML document are contained in this external css file -->
   <link rel="stylesheet" type="text/css" href="css/main_style.css">
+  <!-- the link below connects to all javascript used in this document-->
   <script src="javascript/external.js"></script>
-  <script src="javascript/secret_keys.js"></script>
+  <!-- below is Leaflet code
+  <script src="javascript/secret_keys.js"></script> -->
+  <title>Zoe Chatfield</title>
 </head>
 
+<!-- body container-->
 <body>
   <div id="body-container">
     <div id="header">
-      <h1>Hello, welcome to my page,
-        <script>document.write(welcome())</script> </h1>
+<!-- welcome text header area -->
+      <h1> <script>document.write(welcome())</script> </h1>
     </div>
+<!--profile image-->
     <div id="profile-picture">
       <img src=images/profile-picture.jpeg width=250px height=250px/>
     </div>
+<!-- welcome text body area with more details about me -->
     <div id="welcome-text">
       My name is Zoe.<br>
       Welcome to my webpage. <br>
@@ -37,6 +30,7 @@
       <a href="https://www.clarku.edu/schools/idce/">IDCE Department</a> at
       <a href="https://www.clarku.edu/">Clark University</a>.</p>
     </div>
+<!-- research interests section -->
     <div id="research-interests">
       <h3>Research Interests:</h3>
       <ul>
@@ -46,7 +40,7 @@
       </ul>
     </div>
 
-<!-- working on form for area below -->
+<!-- working on form for area below
     <div id="area_calculator">
       <form>
       Length: <input = a ><br />
@@ -57,17 +51,19 @@
     <div>
       The calculated area is <span id="area"> </span>
     </div>
-<!-- HAVING TROUBLE FIGURING OUT HOW TO GET BUTTON TO RETURN CALCULATION -->
+HAVING TROUBLE FIGURING OUT HOW TO GET BUTTON TO RETURN CALCULATION -->
 
+<!-- webmap reviews section-->
 <div id="webmap-reviews">
     <h3>Webmap Reviews</h3>
   <script> webmap_table() </script>
-</div
+</div>
 
+<!--
 <h3>My First Webmap</h3>
 <div id="mapid" style="width: 600px; height: 400px; margin:auto;">
-  
-</div>
+
+</div> -->
 
 </body>
 

@@ -56,6 +56,7 @@ the newly created container. */
 It moved the image to the top left side of the body of the website below the header,
 and the body “welcome text” moved to the top right. */
   float:left;
+  padding: 1em;
 }
 
 #welcome-text{

@@ -12,25 +12,14 @@
         src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
         integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
         crossorigin=""/>
-</head>
 
-<body>
+          var map = L.map('map').setView([51.505, -0.09], 13);
 
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
 
-<h3>My First Webmap</h3>
-<div id="mapid" style="width: 600px; height: 400px; margin:auto;">
-  <script>
-    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?
-    access_token={accessToken}',
-    {
-      maxZoom: 18,
-      id: 'mapbox/streets-v11',
-      accessToken: mapbox_access_token,
-    }).addTo(mymap);
-  </script>
-</div>
-
-</body>
+        L.marker([51.5, -0.09]).addTo(map)
+            .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+            .openPopup();
 </html>

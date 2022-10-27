@@ -5,20 +5,6 @@
 document.write(' '+user_name+'!');*/
 
 //LAB 4
-/*
-var webmaps =
-[
-  ["Oil Spill Toolkit",
-    "https://www.glo.texas.gov/ost/-,"
-    "The Oil Spill Toolkit developed by Enterprise Technology Solutions"
-    ],
-  ["Texas Ecosystems Analytical Mapper",
-    "http://towd.texas.gov/gis/teamr",
-    "The Texas Parks and Wildlife's Landscape Ecology program developed"
-    ]
-];
-*/
-
 var webmaps =
 [
   ["Google Earth",
@@ -43,9 +29,10 @@ message = "<hi>Hello, welcome to my webpage, " + user_name + "!</h1>"
 
 return message
 }
+//document.write(welcome());
 
 // STILL WORKING ON GETTING THIS TO WORK CORRECTLY
-function area_calculator()
+/* function area_calculator()
 { let a = length
   let b = width
   let area = a*b
@@ -53,15 +40,17 @@ function area_calculator()
 }
  //document.getElementById("area").innerHTML = "I have changed!";
 }
+*/
 
 // STILL WORKING ON GETTING THIS TO WORK CORRECTLY
 function webmap_table()
 {
   document.write("<table width=100%>")
   for(var row = 0; row < webmaps.length; row++){
-      //  if (row==1){console.log(style = "color: #80cdc1")};
-    //    else {console.log(style = "color: #dfc27d"};
-          ///styling
+  ///styling - STILL CANT GET THIS TO WORK!!! UGH 
+      if (row<2){console.log(style="color:#f5f5f5")}
+      else{console.log(style = "color: #018571")};
+  ///styling
       document.write("<tr>");
       for(var column = 0; column < webmaps[0].length; column++){
         document.write("<td>"+webmaps[row][column]+"</td>");
@@ -71,17 +60,16 @@ function webmap_table()
 document.write('</table>')
 }
 
-<script>
-  var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+/*
+var mymap = L.map('mapid').setView([51.505, -0.09], 13);
 
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?
   access_token={accessToken}',
   {
     maxZoom: 18,
     id: 'mapbox/streets-v11',
-    accessToken: mapbox_access_token,
+    accessToken: 'mapbox_access_token',
   }).addTo(mymap);
-</script>
 
 /*
 function area-calculator()
