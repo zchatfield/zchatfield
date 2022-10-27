@@ -31,23 +31,23 @@ return message
 }
 //document.write(welcome());
 
+//AREA CALCULATOR BELOW
 // STILL WORKING ON GETTING THIS TO WORK CORRECTLY
 /* function area_calculator()
 { let a = length
   let b = width
   let area = a*b
   document.write("area")
-}
+} */
  //document.getElementById("area").innerHTML = "I have changed!";
-}
-*/
+
 
 // STILL WORKING ON GETTING THIS TO WORK CORRECTLY
 function webmap_table()
 {
   document.write("<table width=100%>")
   for(var row = 0; row < webmaps.length; row++){
-  ///styling - STILL CANT GET THIS TO WORK!!! UGH 
+  ///styling - STILL CANT GET THIS TO WORK!!! UGH
       if (row<2){console.log(style="color:#f5f5f5")}
       else{console.log(style = "color: #018571")};
   ///styling
