@@ -4,6 +4,19 @@
 /*user_name = window.prompt("What's your name?", "Type your name here");
 document.write(' '+user_name+'!');*/
 
+//LAB 6
+/*
+var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?
+  access_token={accessToken}',
+  {
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    accessToken: 'mapbox_access_token',
+  }).addTo(mymap);
+*/
+
 //LAB 4
 var webmaps =
 [
@@ -60,16 +73,6 @@ function webmap_table()
 document.write('</table>')
 }
 
-/*
-var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-
-  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?
-  access_token={accessToken}',
-  {
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    accessToken: 'mapbox_access_token',
-  }).addTo(mymap);
 
 /*
 function area-calculator()
