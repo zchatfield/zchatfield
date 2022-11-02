@@ -1,0 +1,12 @@
+function webmap_table(){
+	    document.write("<table width=100%>")
+	    for(var row = 0; row <webmaps.length; row++){
+        if (row < 1) {document.write("<tr style='background-color:rgb(204, 156, 172);'>")}
+          else {document.write("<tr style='background-color:rgb(209, 196, 233);'>")};
+	        for(var column = 0; column <webmaps[0].length; column++){
+            document.write("<td>"+webmaps[row][column]+"</td>");
+	        }
+	    document.write('</tr>')
+    }
+	    document.write('</table>')
+	}

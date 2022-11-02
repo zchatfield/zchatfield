@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://js.arcgis.com/4.21/"></script>
+    <script>
+require(["esri/config","esri/Map", "esri/views/MapView"], function (esriConfig,Map,MapView) {
+    esriConfig.apiKey="kt2devYInX8M5uQ9OjFdime-Xqqg-PaHf0XjxdIFedG5C9J4hNiFx2us958s9G2WUoChGRTnob45_VkvSgrjQIyTXPjg7SQU6nHpylK6OI-k3Oxh4S_x7opbcj1kbLF0oKrxtGJ6fkLIJ0z7QtHx_g.."
+      const map = new Map({
+      basemap: "arcgis-topographic"
+       });
+        const webmap= new WebMap({
+          portalItem:
+          id:"e691172598f04ea8881cd2a4adaa45ba"        //This webmap is available without log-in
+            //id: "ef9c7fbda731474d98647bebb4b33c20"        // This webmap requires log-in
+            //id: "8e42e164d4174da09f61fe0d3f206641"
+           // id: "d582a9e953c44c09bb998c7d9b66f8d4"
+           //id: "fa96bca2d5be474b81d9450a06cc892b"
+             //id: "5160f7a5a62b432c92b3f39772eaf52c"  // This is one of my hosted Feature layers
+            //id: "c2a3444863f2466aaad9efa6e65063e1"       // This webmap requires log-in
+        })
+        });
+        const view = new MapView({
+          map: map,
+          view.center=[-112,38];
+          view.zoom=5;
+          view.scale=
+          container: "viewDiv"
+        })
+      });
+
+    //This is where I call the county shapefile from my developer account
+
+    /*  const us_counties = new FeatureLayer({
+        url: "https://services1.arcgis.com/M68M8H7oABBFs1Pf/arcgis/rest/services/US_Counties/FeatureServer/0"
+      });
+
+      map.add(us_counties);*/ 
+
+      const layer = new FeatureLayer({
+        url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/HUD_Regions/FeatureServer/0"
+      });
+
+      map.add(layer);
+
+        });
+    </script>
+  </head>
+  <body>
+  <div id="viewDiv"></div>
+</body>
+</html>

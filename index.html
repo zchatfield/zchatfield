@@ -15,7 +15,8 @@
       integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
       crossorigin="">
     </script>
-
+<!--the link below is leaflet API--> 
+    <script src="javascript/secret_key.js"></script>
 <!-- All styling for this HTML document are contained in this external css file -->
   <link rel="stylesheet" type="text/css" href="css/main_style.css">
 <!-- the link below connects to all javascript used in this document-->
@@ -78,13 +79,11 @@
   <script>
     var mymap = L.map('mapid').setView([51.505, -0.09], 13);
 
-      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?
-      access_token={accessToken}',
-      {
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',{
         maxZoom: 18,
         id: 'mapbox/streets-v11',
-        accessToken: 'mapbox_access_token',
-      }).addTo(mymap);
+        accessToken: mapbox_access_token,
+    }).addTo(mymap);
     </script>
 </div>
 

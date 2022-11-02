@@ -18,6 +18,8 @@ var mymap = L.map('mapid').setView([51.505, -0.09], 13);
 */
 
 //LAB 4
+//<link rel="stylesheet" type="text/css" href="css/main_style.css">
+
 var webmaps =
 [
   ["Google Earth",
@@ -61,8 +63,9 @@ function webmap_table()
   document.write("<table width=100%>")
   for(var row = 0; row < webmaps.length; row++){
   ///styling - STILL CANT GET THIS TO WORK!!! UGH
-      if (row<2){console.log(style="color:#f5f5f5")}
-      else{console.log(style = "color: #018571")};
+  //if (row < 1) {document.write("<tr style='background-color:rgb(204, 156, 172);'>")}
+      if(row<1){document.write("<tr style='background-color:colorbrewer2(#a6611a);'/>")}
+      else{document.write("<tr style='background-color:colorbrewer2(#f5f5f5)'/>")};
   ///styling
       document.write("<tr>");
       for(var column = 0; column < webmaps[0].length; column++){
