@@ -5,32 +5,32 @@
   <!-- Below is Leaflet related code-->
     <meta charset="utf-8">
     <meta name="viewport" content="" width=device-width, initial-scale=1.9>
+  <!--more leaflet code -->
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
       integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
       crossorigin=""/>
-    <link rel="stylesheet" type="text/css" href="css/map_style.css" >
-    <link rel="stylesheet"
-      href="https://cdn.jsdeliver.net/gh/opencagedata/leaflet-opencage-search@d4cbd36122efc8d17152b4177ed0e12165305441/dist/css/L.Control.OpenCageData.Search.min.css"/>
-
-    <script
-    src="https://cdn.jsdeliver.net/gh/opencagedata/leaflet-opencage-search@d4cbd36122efc8d17152b4177ed0e12165305441/dist/js/L.Control.OpenCageSearch.min.js">
-    </script>
+    <link rel="stylesheet" type="text/css" href="css/map_style.css">
 
     <script
       src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
       integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
       crossorigin="">
     </script>
+
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/opencagedata/leaflet-opencage-search@d4cbd36122efc8d17152b4177ed0e12165305441/dist/css/L.Control.OpenCageData.Search.min.css"/>
+
+  <script src="https://cdn.jsdelivr.net/gh/opencagedata/leaflet-opencage-geocoding@v2.0.0/dist/js/L.Control.OpenCageGeocoding.min.js"></script>
 <!--the link below is leaflet API-->
     <script src="javascript/secret_key.js"></script>
+<!-- the link below connects to all javascript used in this document-->
+      <script src="javascript/external.js"></script>
+      <script src="javascript/map.js"></script>
 <!-- All styling for this HTML document are contained in this external css file -->
   <link rel="stylesheet" type="text/css" href="css/main_style.css">
-<!-- the link below connects to all javascript used in this document-->
-  <script src="javascript/external.js"></script>
-  <script src="javascript/map.js"></script>
-  
+
   <title>Zoe Chatfield</title>
 </head>
 
@@ -86,7 +86,7 @@
 <h3>Geocoding Map</h3>
 
 <div id="mapid" style="width: 600px; height: 400px; margin:auto;">
-<!-- LINK TO MAPJS** STILL WORKING ON THIS** -->
+<!-- LINK TO MAP.JS** STILL WORKING ON THIS** -->
 <script> mapDisplay() </script>
 </div>
 

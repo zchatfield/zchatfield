@@ -59,6 +59,21 @@ function mapDisplay(){
 
   var control = L.control.openCageSearch(options).addTo(mymap);
 
+  // SEVEN WONDERS OF THE WORLD
+
+  var marker = L.marker([27.174961, 78.042385]).addTo(mymap);
+  var marker = L.marker([40.334245, 116.477652]).addTo(mymap);
+  var marker = L.marker([30.328611, 35.441944]).addTo(mymap);
+  var marker = L.marker([-22.951389, -43.2108334]).addTo(mymap);
+  var marker = L.marker([-13.163056, -72.545556]).addTo(mymap);
+  var marker = L.marker([20.682778, -88.569167]).addTo(mymap);
+  var marker = L.marker([41.890169, 12.492269]).addTo(mymap);
+
+// add unique marker symbols
+//add custom pop up windows for each
+//pop up window info: name of landmark in bold, a photo the landmark,
+  //and a short paragraph about each landmark
+
   var ZoomViewer = L.Control.extend({
     onAdd: function(){
       var gauge = L.DomUtil.create('div');
