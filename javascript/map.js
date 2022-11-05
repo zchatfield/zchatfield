@@ -56,7 +56,7 @@ var mymap = L.map('mapid').setView([0, 0], 1);
 
   var control = L.control.openCageSearch(options).addTo(mymap); */
 
-  // SEVEN WONDERS OF THE WORLD
+//SEVEN WONDERS OF THE WORLD
   var marker1 = L.marker([27.174961, 78.042385]).addTo(mymap);
   var marker2 = L.marker([40.334245, 116.477652]).addTo(mymap);
   var marker3 = L.marker([30.328611, 35.441944]).addTo(mymap);
@@ -64,11 +64,10 @@ var mymap = L.map('mapid').setView([0, 0], 1);
   var marker5 = L.marker([-13.163056, -72.545556]).addTo(mymap);
   var marker6 = L.marker([20.682778, -88.569167]).addTo(mymap);
   var marker7 = L.marker([41.890169, 12.492269]).addTo(mymap);
-// add unique marker symbols
-//add custom pop up windows for each
-//pop up window info: name of landmark in bold, a photo the landmark,
-  //and a short paragraph about each landmark
-
+  // add unique marker symbols
+  //add custom pop up windows for each
+  //pop up window info: name of landmark in bold, a photo the landmark,
+    //and a short paragraph about each landmark
 marker1.bindPopup('<img src="images/tajmahal.jpeg" width=150 height=100/><br><b>India\'s Taj Mahal</b><br>The Taj Mahal is an Islamic ivory-white marble mausoleum on the right bank of the river Yamuna in the Indian city of Agra. It was commissioned in 1631 by the Mughal emperor Shah Jahan to house the tomb of his favourite wife, Mumtaz Mahal; it also houses the tomb of Shah Jahan himself.')
 marker2.bindPopup('<img src="images/great-wall.jpeg" width=150 height=100/><br><b>Great Wall of China</b></br>The Great Wall of China (traditional Chinese: 萬里長城; simplified Chinese: 万里长城; pinyin: Wànlǐ Chángchéng) is a series of fortifications that were built across the historical northern borders of ancient Chinese states and Imperial China as protection against various nomadic groups from the Eurasian Steppe.')
 marker3.bindPopup('<img src="images/petra.jpeg" width=150 height=100/><br><b>Petra in Jordan</b><br>Petra (Arabic: ٱلْبَتْرَاء, romanized: Al-Batrāʾ; Ancient Greek: Πέτρα, "Rock", Nabataean: 𐢛𐢚𐢓𐢈‎), originally known to its inhabitants as Raqmu or Raqēmō, is a historic and archaeological city in southern Jordan. It is adjacent to the mountain of Jabal Al-Madbah, in a basin surrounded by mountains forming the eastern flank of the Arabah valley running from the Dead Sea to the Gulf of Aqaba.')
@@ -77,6 +76,7 @@ marker5.bindPopup('<img src="images/Machu-Picchu.jpeg" width=150 height=100/><br
 marker6.bindPopup('<img src="images/chichen-itza.jpeg" width=150 height=100/><br><b>Mexico\'s Chichen Itza Pyramid</b><br>Chichen Itza was a large pre-Columbian city built by the Maya people of the Terminal Classic period. The archeological site is located in Tinúm Municipality, Yucatán State, Mexico.')
 marker7.bindPopup('<img src="images/colosseum.jpeg" width=150 height=100/><br><b>The Colosseum in Rome</b><br>The Colosseum (/ˌkɒləˈsiːəm/ KOL-ə-SEE-əm; Italian: Colosseo [kolosˈsɛːo]) is an oval amphitheatre in the centre of the city of Rome, Italy, just east of the Roman Forum. It is the largest ancient amphitheatre ever built, and is still the largest standing amphitheatre in the world today, despite its age.')
 
+//ZOOM VIEWER
 var ZoomViewer = L.Control.extend({
     onAdd: function(){
       var gauge = L.DomUtil.create('div');
@@ -94,7 +94,7 @@ var ZoomViewer = L.Control.extend({
 
       //ADD FOUR PLUG INS!
 
-//ZOOM SLIDER FULL CODE
+//ZOOM SLIDER FULL CODE PLUG IN
   L.Control.Zoomslider = (function () {
 
   	var Knob = L.Draggable.extend({
@@ -322,5 +322,24 @@ L.control.rainviewer({
     animationInterval: 500,
     opacity: 0.5
 }).addTo(mymap);
+
+//COUNTRY SEARCH PLUGIN
+var select = L.countrySelect({title:'Pick a country!'});
+var select = L.countrySelect().addTo(mymap);
+
+select.on('change', function(e){
+	if(e.feature === undefined){ //No action when the first item ("Country") is selected
+		return;
+	}
+	var country = L.geoJson(e.feature);
+	if (this.previousCountry != null){
+		mymap.removeLayer(this.previousCountry);
+	}
+	this.previousCountry = country;
+
+	mymap.addLayer(country);
+	mymap.fitBounds(country.getBounds());
+
+});
 
 //  mymap.setView([0, 0], 1);
