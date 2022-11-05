@@ -1,13 +1,12 @@
   var mymap = L.map('mapid');
 
-/*  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',{
+ /* L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',{
       maxZoom: 18,
       id: 'mapbox/satellite-streets-v11',
       accessToken: mapbox_access_token,
-  }).addTo(mymap);
-*/
+  }).addTo(mymap);*/
 
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
+ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
   }).addTo(mymap);
 
 /*
@@ -48,12 +47,15 @@
     mymap.setView(e.latlng, 13);
   });
 */
+
+//OPEN CAGE PLUG IN
+/*
   var options = {
     key: geocoder_api_key,
     limit:10
   };
 
-  var control = L.control.openCageSearch(options).addTo(mymap);
+  var control = L.control.openCageSearch(options).addTo(mymap); */
 
   // SEVEN WONDERS OF THE WORLD
   var marker1 = L.marker([27.174961, 78.042385]).addTo(mymap);
@@ -69,13 +71,15 @@
 //pop up window info: name of landmark in bold, a photo the landmark,
   //and a short paragraph about each landmark
 
-marker1.bindPopup('<img src="https://en.wikipedia.org/wiki/Taj_Mahal#/media/File:Taj_Mahal_in_India_-_Kristian_Bertel.jpg" width=100 height=100/><b>India\'s Taj Mahal</b><br>The Taj Mahal is an Islamic ivory-white marble mausoleum on the right bank of the river Yamuna in the Indian city of Agra. It was commissioned in 1631 by the Mughal emperor Shah Jahan to house the tomb of his favourite wife, Mumtaz Mahal; it also houses the tomb of Shah Jahan himself.')
-marker2.bindPopup('<img src="https://en.wikipedia.org/wiki/Great_Wall_of_China#/media/File:The_Great_Wall_of_China_at_Jinshanling-edit.jpg"/><b>Great Wall of China</b></br>The Great Wall of China (traditional Chinese: 萬里長城; simplified Chinese: 万里长城; pinyin: Wànlǐ Chángchéng) is a series of fortifications that were built across the historical northern borders of ancient Chinese states and Imperial China as protection against various nomadic groups from the Eurasian Steppe.')
-marker3.bindPopup('<img src="https://en.wikipedia.org/wiki/Petra#/media/File:Treasury_petra_crop.jpeg"/><b>Petra in Jordan</b><br>Petra (Arabic: ٱلْبَتْرَاء, romanized: Al-Batrāʾ; Ancient Greek: Πέτρα, "Rock", Nabataean: 𐢛𐢚𐢓𐢈‎), originally known to its inhabitants as Raqmu or Raqēmō, is a historic and archaeological city in southern Jordan. It is adjacent to the mountain of Jabal Al-Madbah, in a basin surrounded by mountains forming the eastern flank of the Arabah valley running from the Dead Sea to the Gulf of Aqaba.')
-marker4.bindPopup('<img src="https://en.wikipedia.org/wiki/Christ_the_Redeemer_(statue)#/media/File:Christ_the_Redeemer_-_Cristo_Redentor.jpg"/><b>Brazil\'s statue of Christ the Redeemer</b><br>Christ the Redeemer (Portuguese: Cristo Redentor, standard Brazilian Portuguese: [ˈkɾistu ʁedẽˈtoʁ], local pronunciation: [ˈkɾiɕtŭ̥ xe̞dẽˈtoɦ]) is an Art Deco statue of Jesus Christ in Rio de Janeiro, Brazil, created by French sculptor Paul Landowski and built by Brazilian engineer Heitor da Silva Costa, in collaboration with French engineer Albert Caquot. Romanian sculptor Gheorghe Leonida fashioned the face. Constructed between 1922 and 1931, the statue is 30 metres (98 ft) high, excluding its 8-metre (26 ft) pedestal. The arms stretch 28 metres (92 ft) wide. It is made of reinforced concrete and soapstone.')
-marker5.bindPopup('<img src="https://en.wikipedia.org/wiki/Machu_Picchu#/media/File:Before_Machu_Picchu.jpg"/><b>Peru\'s Machu Picchu</b><br>Machu Picchu is a 15th-century Inca citadel located in the Eastern Cordillera of southern Peru on a 2,430-meter (7,970 ft) mountain ridge. It is located in the Machupicchu District within Urubamba Province above the Sacred Valley, which is 80 kilometers (50 mi) northwest of Cusco. The Urubamba River flows past it, cutting through the Cordillera and creating a canyon with a tropical mountain climate.')
-marker6.bindPopup('<img src="https://en.wikipedia.org/wiki/Chichen_Itza#/media/File:Chichen_Itza_3.jpg"/><b>Mexico\'s Chichen Itza Pyramid</b><br>Chichen Itza was a large pre-Columbian city built by the Maya people of the Terminal Classic period. The archeological site is located in Tinúm Municipality, Yucatán State, Mexico.')
-marker7.bindPopup('<img src="https://en.wikipedia.org/wiki/Colosseum#/media/File:Colosseo_2020.jpg"/><b>The Colosseum in Rome</b><br>The Colosseum (/ˌkɒləˈsiːəm/ KOL-ə-SEE-əm; Italian: Colosseo [kolosˈsɛːo]) is an oval amphitheatre in the centre of the city of Rome, Italy, just east of the Roman Forum. It is the largest ancient amphitheatre ever built, and is still the largest standing amphitheatre in the world today, despite its age.')
+marker1.bindPopup('<img src="images/tajmahal.jpeg" width=150 height=100/><br><b>India\'s Taj Mahal</b><br>The Taj Mahal is an Islamic ivory-white marble mausoleum on the right bank of the river Yamuna in the Indian city of Agra. It was commissioned in 1631 by the Mughal emperor Shah Jahan to house the tomb of his favourite wife, Mumtaz Mahal; it also houses the tomb of Shah Jahan himself.')
+marker2.bindPopup('<img src="images/great-wall.jpeg" width=150 height=100/><br><b>Great Wall of China</b></br>The Great Wall of China (traditional Chinese: 萬里長城; simplified Chinese: 万里长城; pinyin: Wànlǐ Chángchéng) is a series of fortifications that were built across the historical northern borders of ancient Chinese states and Imperial China as protection against various nomadic groups from the Eurasian Steppe.')
+marker3.bindPopup('<img src="images/petra.jpeg" width=150 height=100/><br><b>Petra in Jordan</b><br>Petra (Arabic: ٱلْبَتْرَاء, romanized: Al-Batrāʾ; Ancient Greek: Πέτρα, "Rock", Nabataean: 𐢛𐢚𐢓𐢈‎), originally known to its inhabitants as Raqmu or Raqēmō, is a historic and archaeological city in southern Jordan. It is adjacent to the mountain of Jabal Al-Madbah, in a basin surrounded by mountains forming the eastern flank of the Arabah valley running from the Dead Sea to the Gulf of Aqaba.')
+marker4.bindPopup('<img src="images/christ.jpeg" width=75 height=125/><br><b>Brazil\'s statue of Christ the Redeemer</b><br>Christ the Redeemer (Portuguese: Cristo Redentor, standard Brazilian Portuguese: [ˈkɾistu ʁedẽˈtoʁ], local pronunciation: [ˈkɾiɕtŭ̥ xe̞dẽˈtoɦ]) is an Art Deco statue of Jesus Christ in Rio de Janeiro, Brazil, created by French sculptor Paul Landowski and built by Brazilian engineer Heitor da Silva Costa, in collaboration with French engineer Albert Caquot. Romanian sculptor Gheorghe Leonida fashioned the face. Constructed between 1922 and 1931, the statue is 30 metres (98 ft) high, excluding its 8-metre (26 ft) pedestal. The arms stretch 28 metres (92 ft) wide. It is made of reinforced concrete and soapstone.')
+marker5.bindPopup('<img src="images/Machu-Picchu.jpeg" width=150 height=100/><br><b>Peru\'s Machu Picchu</b><br>Machu Picchu is a 15th-century Inca citadel located in the Eastern Cordillera of southern Peru on a 2,430-meter (7,970 ft) mountain ridge. It is located in the Machupicchu District within Urubamba Province above the Sacred Valley, which is 80 kilometers (50 mi) northwest of Cusco. The Urubamba River flows past it, cutting through the Cordillera and creating a canyon with a tropical mountain climate.')
+marker6.bindPopup('<img src="images/chichen-itza.jpeg" width=150 height=100/><br><b>Mexico\'s Chichen Itza Pyramid</b><br>Chichen Itza was a large pre-Columbian city built by the Maya people of the Terminal Classic period. The archeological site is located in Tinúm Municipality, Yucatán State, Mexico.')
+marker7.bindPopup('<img src="images/colosseum.jpeg" width=150 height=100/><br><b>The Colosseum in Rome</b><br>The Colosseum (/ˌkɒləˈsiːəm/ KOL-ə-SEE-əm; Italian: Colosseo [kolosˈsɛːo]) is an oval amphitheatre in the centre of the city of Rome, Italy, just east of the Roman Forum. It is the largest ancient amphitheatre ever built, and is still the largest standing amphitheatre in the world today, despite its age.')
+
+//ADD FOUR PLUG INS!
 
 var ZoomViewer = L.Control.extend({
     onAdd: function(){
