@@ -47,7 +47,6 @@ var mymap = L.map('mapid').setView([0, 0], 1);
     mymap.setView(e.latlng, 13);
   });
 */
-
 //OPEN CAGE PLUG IN
 /*
   var options = {
@@ -65,7 +64,6 @@ var mymap = L.map('mapid').setView([0, 0], 1);
   var marker5 = L.marker([-13.163056, -72.545556]).addTo(mymap);
   var marker6 = L.marker([20.682778, -88.569167]).addTo(mymap);
   var marker7 = L.marker([41.890169, 12.492269]).addTo(mymap);
-
 // add unique marker symbols
 //add custom pop up windows for each
 //pop up window info: name of landmark in bold, a photo the landmark,
@@ -94,7 +92,7 @@ var ZoomViewer = L.Control.extend({
 
   (new ZoomViewer).addTo(mymap);
 
-  //ADD FOUR PLUG INS!
+      //ADD FOUR PLUG INS!
 
 //ZOOM SLIDER FULL CODE
   L.Control.Zoomslider = (function () {
@@ -305,5 +303,10 @@ var ZoomViewer = L.Control.extend({
 //ZOOMSLIDER PLUGIN TRY without full code
 /* var ZoomSlider = L.Control.Zoomslider()
 (new ZoomSlider).addTo(mymap); */
+//TIME ZONES PLUGIN
+//L.timezones.addTo(mymap);
+L.timezones.bindPopup(function (layer) {
+    return layer.feature.properties.time_zone;
+}).addTo(mymap);
 
 //  mymap.setView([0, 0], 1);
