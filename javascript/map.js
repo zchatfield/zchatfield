@@ -303,10 +303,24 @@ var ZoomViewer = L.Control.extend({
 //ZOOMSLIDER PLUGIN TRY without full code
 /* var ZoomSlider = L.Control.Zoomslider()
 (new ZoomSlider).addTo(mymap); */
+
 //TIME ZONES PLUGIN
 //L.timezones.addTo(mymap);
 L.timezones.bindPopup(function (layer) {
     return layer.feature.properties.time_zone;
+}).addTo(mymap);
+
+//RAIN VIEWER PLUGIN
+// Change default options
+L.control.rainviewer({
+    position: 'bottomleft',
+    nextButtonText: '>',
+    playStopButtonText: 'Play/Stop',
+    prevButtonText: '<',
+    positionSliderLabelText: "Hour:",
+    opacitySliderLabelText: "Opacity:",
+    animationInterval: 500,
+    opacity: 0.5
 }).addTo(mymap);
 
 //  mymap.setView([0, 0], 1);
