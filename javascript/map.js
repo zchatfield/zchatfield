@@ -79,8 +79,6 @@ marker5.bindPopup('<img src="images/Machu-Picchu.jpeg" width=150 height=100/><br
 marker6.bindPopup('<img src="images/chichen-itza.jpeg" width=150 height=100/><br><b>Mexico\'s Chichen Itza Pyramid</b><br>Chichen Itza was a large pre-Columbian city built by the Maya people of the Terminal Classic period. The archeological site is located in Tinúm Municipality, Yucatán State, Mexico.')
 marker7.bindPopup('<img src="images/colosseum.jpeg" width=150 height=100/><br><b>The Colosseum in Rome</b><br>The Colosseum (/ˌkɒləˈsiːəm/ KOL-ə-SEE-əm; Italian: Colosseo [kolosˈsɛːo]) is an oval amphitheatre in the centre of the city of Rome, Italy, just east of the Roman Forum. It is the largest ancient amphitheatre ever built, and is still the largest standing amphitheatre in the world today, despite its age.')
 
-//ADD FOUR PLUG INS!
-
 var ZoomViewer = L.Control.extend({
     onAdd: function(){
       var gauge = L.DomUtil.create('div');
@@ -96,7 +94,11 @@ var ZoomViewer = L.Control.extend({
 
   (new ZoomViewer).addTo(mymap);
 
-var ZoomSlider = L.Control.Zoomslider()
-(new ZoomSlider).addTo(mymap);
+  //ADD FOUR PLUG INS!
+
+
+//ZOOMSLIDER PLUGIN TRY
+/* var ZoomSlider = L.Control.Zoomslider()
+(new ZoomSlider).addTo(mymap); */
 
   mymap.setView([0, 0], 1);
