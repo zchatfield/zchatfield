@@ -96,4 +96,7 @@ var ZoomViewer = L.Control.extend({
 
   (new ZoomViewer).addTo(mymap);
 
+var ZoomSlider = L.Control.Zoomslider()
+(new ZoomSlider).addTo(mymap);
+
   mymap.setView([0, 0], 1);
