@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Load a basic WebMap | Sample | ArcGIS API for JavaScript 4.21</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css" />
+
+    <script src="https://js.arcgis.com/4.21/"></script>
+
+    <script>
+      require(["esri/views/MapView", "esri/WebMap"], (MapView, WebMap) => {
+
+        const webmap = new WebMap({
+          portalItem: {
+            // autocasts as new PortalItem()
+            //id:"e691172598f04ea8881cd2a4adaa45ba"        //This webmap is available without log-in
+            //id: "ef9c7fbda731474d98647bebb4b33c20"        // This webmap requires log-in
+            //id: "8e42e164d4174da09f61fe0d3f206641"
+           // id: "d582a9e953c44c09bb998c7d9b66f8d4"
+           //id: "fa96bca2d5be474b81d9450a06cc892b"
+             id: "5160f7a5a62b432c92b3f39772eaf52c"  // This is one of my hosted Feature layers
+            //id: "c2a3444863f2466aaad9efa6e65063e1"       // This webmap requires log-in
+          }
+
+
+        });
+
+        const view = new MapView({
+          map: webmap,
+          container: "viewDiv"
+
+        });
+
+
+      });
+      const graphicsLayer = new GraphicsLayer();
+ map.add(graphicsLayer);
+
+ // Create a line geometry
+ const polyline = {
+    type: "polyline",
+    paths: [
+        [-71.802292, 42.262592], //Longitude, latitude
+        [-71.766983, 42.244277], //Longitude, latitude
+        [-71.758050, 42.222924]  //Longitude, latitude
+    ]
+ };
+ const simpleLineSymbol = {
+    type: "simple-line",
+    color: [252, 3, 69], // red
+    width: 4
+ };
+
+ const polylineGraphic = new Graphic({
+    geometry: polyline,
+    symbol: simpleLineSymbol
+ });
+ graphicsLayer.add(polylineGraphic);
+
+
+ });
+    </script>
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>

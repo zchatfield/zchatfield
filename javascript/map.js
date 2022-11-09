@@ -48,7 +48,15 @@ var mymap = L.map('mapid').setView([0, 0], 1);
   });
 */
 //OPEN CAGE PLUG IN
-/*
+  //new CODE
+  var options = {
+    key: geocoder_api_key,
+    limit:10
+  };
+
+  var control = L.Control.openCageGeocoding(options).addTo(mymap);
+
+/* old code
   var options = {
     key: geocoder_api_key,
     limit:10
