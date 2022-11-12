@@ -1,0 +1,19 @@
+<! doctype HTML>
+<head>
+  <script>
+esriConfig.apiKey = "AAPK29296f7302074d9f999f96618e304ff4cC0wXR-6C7fmEyLgwDMXlqntMx_OJKXfbaAfOPkipemB10ZmzGIkPjmlldlYWXPW";
+const map = new Map({
+  basemap: "arcgis-topographic" // Basemap layer
+});
+
+const view = new MapView({
+  map: map,
+  center: [-118.805, 34.027],
+  zoom: 13, // scale: 72223.819286
+  container: "viewDiv",
+  constraints: {
+    snapToZoom: false
+  }
+});
+</script> 
+</head>
