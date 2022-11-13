@@ -22,10 +22,11 @@
     require([
     "esri/Map",
     "esri/views/MapView",
-    "esri/layers/TileLayer"
+    "esri/layers/TileLayer",
     //this connects to Esri's cached map services within the ArcGIS server. It allows us to display map imagery faster and within specified layer variables
-  ], function(Map, MapView, TileLayer){ //to display the Tile Layers, we need to add it to the function after connected to the server
-      var map = new Map({basemap:"oceans",layers:"[TransportationLayer]"});
+    "esri/layers/MapImageLayer"
+  ], function(Map, MapView, TileLayer, MapImageLayer){ //to display the Tile Layers, we need to add it to the function after connected to the server
+      var map = new Map({basemap:"dark-gray", layers:"TransportationLayer, CitiesLayer"});
       var view = new MapView({
       container: "viewDiv",
       map: map,
@@ -37,6 +38,27 @@
           });
           // this connects to a specified layer within ArcGIS's server, and is being called upon as a Tile Layer now that we've added the Tile Layer format as a display option.
           //It will show data specific to transportation (highways, roads, airports, etc)
+      var CitiesRenderer = {
+        type:"simple", //autocasts as new SimpleRenderer()
+        symbol:{
+          type:"simple-marker", //autocasts as new SimpleMarkerSymbol()
+          size: 3,
+          color:"yellow",
+          style:"circle",
+          outline:{
+            width: 1,
+            color:"yellow"}
+          },
+          label: "Cities"
+        };
+      var CitiesLayer = new MapImageLayer({
+        url: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer",
+        sublayers:[{
+          id:0,
+          renderer: CitiesRenderer,
+          opacity: 0.4
+        }]
+      });
   });
     </script>
       <!-- after connecting to the links before, we're able to specify the map view based on available css options
