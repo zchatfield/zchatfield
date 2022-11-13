@@ -25,6 +25,7 @@
     "esri/layers/TileLayer",
     //this connects to Esri's cached map services within the ArcGIS server. It allows us to display map imagery faster and within specified layer variables
     "esri/layers/MapImageLayer"
+    //this connects to Esri's Map Image Layer, which allows for the display and analysis of data using sublayers and exporting images to the map
   ], function(Map, MapView, TileLayer, MapImageLayer){ //to display the Tile Layers, we need to add it to the function after connected to the server
       var map = new Map({basemap:"dark-gray", layers:"TransportationLayer, CitiesLayer"});
       var view = new MapView({
@@ -38,7 +39,7 @@
           });
           // this connects to a specified layer within ArcGIS's server, and is being called upon as a Tile Layer now that we've added the Tile Layer format as a display option.
           //It will show data specific to transportation (highways, roads, airports, etc)
-      var CitiesRenderer = {
+      var CitiesRenderer = { //the Renderer creates a symbology to represent Cities on the map
         type:"simple", //autocasts as new SimpleRenderer()
         symbol:{
           type:"simple-marker", //autocasts as new SimpleMarkerSymbol()
@@ -51,7 +52,7 @@
           },
           label: "Cities"
         };
-      var CitiesLayer = new MapImageLayer({
+      var CitiesLayer = new MapImageLayer({ // this creates a feature layer made up of the symbology produced by CitiesRenderer
         url: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer",
         sublayers:[{
           id:0,
