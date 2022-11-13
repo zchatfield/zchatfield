@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- this tage contains metadata about the file -->
-  <title>Dynamic Layers</title>
+  <title>On Event</title>
     <!-- this title appears in the tab heading of the web page -->
   <style> html, body, #viewDiv{
     padding: 0;
@@ -60,6 +60,11 @@
           opacity: 0.4
         }]
       });
+    view.on("click", eventHandler);
+      function eventHandler(event){
+        console.log("You just triggered a 'click' event!");
+        alert("You just triggered a 'click' event!");
+      }
   });
     </script>
       <!-- after connecting to the links before, we're able to specify the map view based on available css options
