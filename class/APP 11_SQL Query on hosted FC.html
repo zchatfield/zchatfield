@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>APP VIEW</title>
+  <style>
+    html, body, #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    };
+    .esri-ui-corner .esri-component.esri-widget--panel {
+    width: 200px !important;
+};
+  </style>
+<!--  <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css">
+  <script src="https://js.arcgis.com/4.21/"></script>
+  <link rel="stylesheet" href="https://js.arcgis.com/3.38/esri/css/esri.css">
+-->
+
+ <!-- for APP code -->
+<link rel="stylesheet" href="css/main.css">
+<script>var dojoConfig = { mblAlwaysHideAddressBar: true };</script>
+<script src="https://js.arcgis.com/3.42compact/"></script>
+  <script>
+
+//APP Code
+
+  require([
+    "esri/map",
+    "dojox/mobile",
+    "dojox/mobile/parser",
+    "esri/sniff",
+    "dojox/mobile/deviceTheme",
+    "dojo/dom",
+    "dijit/registry",
+    "dojo/on",
+    "dojox/mobile/ToolBarButton",
+    "dojox/mobile/View",
+    "dojox/mobile/ContentPane"]
+
+
+    var map = new esri.Map("map", {
+      basemap: "topo-vector",
+      center: [-118.696, 34.111],
+      zoom: 7,
+      slider: false
+    });
+    map.on("load", mapLoadHandler);
+
+    var resizeEvt = (window.onorientationchange !== undefined && !has('android')) ? "orientationchange" : "resize";
+    on(window, resizeEvt, resizeMap);
+
+    function mapLoadHandler(evt) {
+      resizeMap();
+      registry.byId('mapView').on('AfterTransitionIn', resizeMap);
+    }
+  ],
+
+    function (Map, mobile, parser, has, dTheme, dom, registry, on) {
+      parser.parse();
+      mobile.hideAddressBar();
+      
+</script>
+</head>
+<body>
+<body>
+  <div id="mapView" data-dojo-type="dojox.mobile.View" data-dojo-props="selected: true">
+    <div id="header" data-dojo-type="dojox.mobile.Heading">
+      <div id="aboutButton" data-dojo-type="dojox.mobile.ToolBarButton" style="float: right;" moveTo="aboutView">
+        About
+      </div>
+    </div>
+    <div id="mapContainer" data-dojo-type="dojox.mobile.ContentPane">
+      <div id="map"></div>
+    </div>
+  </div>
+
+  <div id="aboutView" data-dojo-type="dojox.mobile.View">
+    <h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="back:'Map', moveTo:'mapView'">About</h1>
+
+    <p style="padding: 5px;">This area can contain additional information about your application.</p>
+
+  </div>
+</body>
+</html>
+</body>
+</html>
