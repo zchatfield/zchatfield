@@ -50,7 +50,7 @@
     "dojo/_base/array",
     "dojo/dom",
     "dojo/on",
-    "dojo/domReady!"
+    "dojo/domReady!" //these had to be added to connect to the repositories containing the query task functions
   ], function(Map, MapView, TileLayer, MapImageLayer, BasemapGallery, GraphicsLayer, QueryTask, Query, arrayUtils, dom, on){ //to display the Tile Layers, we need to add it to the function after connected to the server
       var map = new Map({basemap:"dark-gray", layers:"TransportationLayer, CitiesLayer"});
       var view = new MapView({
@@ -153,7 +153,7 @@
     var resultsLayer = new GraphicsLayer();
 
     var qTask = new QueryTask({
-      url:popUrl
+      url: popUrl
     });
 
     var params = new Query({
@@ -170,16 +170,26 @@
     <!-- this calls upon the map variable created in the head, with the styling that was assigned to it.
       this section will allow us to add more functions and modifications to the basemap created -->
 
-  <!--this calls upon the Div section styling set in the head-->
+  <!--this calls upon the Div section styling set in the head and creates a window with the content below displayed-->
   <div class="esri-widget" id="optionsDiv">
     <h2>Cities in California</h2>
     <select class="esri-widget" id="attSelect">
       <option value="Population">Population</option>
-      <option value="Household" selected>Households</option>
+      <option value="Household"selected>Households</option>
     </select>
     <select class="esri-widget" id="signSelect">
       <option value=">">is greater than</option>
       <option value="<">is less than</option>
+    </select>
+<!--this section sets up the variables in the query to select from
+the data being pulled from the widget URL has the categories of "Population" and "Households"
+with related numbers for each city. Setting up this query will allow for a display of data points
+that fit within the parameters set in the query-->
+    <select class="esri-widget" id="valSelect">
+      <option value="10000">10,000</option>
+      <option value="50000">50,000</option>
+      <option value="100000">100,000</option>
+      <option value="200000">200,000</option>
     </select>
     <br>
     <br>
