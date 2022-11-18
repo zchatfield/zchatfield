@@ -70,12 +70,12 @@
 //THERE SHOULD BE BASEMAP GALLERY CODE HERE
     var basemapGallery = new BasemapGallery({
       view: view
-    });
+    }); //this creates the basemap gallery widget into a variable
 
     view.ui.add(basemapGallery,{
         position: "top-right"
       });
-  });
+  }); // this calls on the variable to display it on the screen (and where on the page it will appear)
     </script>
       <!-- after connecting to the links before, we're able to specify the map view based on available css options
         and can set where on the map and at what zoom level the starting view will appear at -->
