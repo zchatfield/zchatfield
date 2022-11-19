@@ -6,8 +6,8 @@
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
   <!-- this title appears in the tab heading of the web page -->
 <title>Lab 7 Homework</title>
-  <!--Below is styling links-->
-    <link rel="stylesheet" type="text/css" href="css/main_style.css">
+  <!--Below is styling links
+  <link rel="stylesheet" type="text/css" href="css/main_style.css">-->
   <style> html, body, #viewDiv{
     padding: 0;
     margin: 0;
@@ -24,20 +24,25 @@
   //BELOW BEGINS CONNECTING TO THE DISPLAY MAP
     require([
     "esri/Map",
-    "esri/views/MapView"
-  ], function(Map, MapView){
+    "esri/views/MapView",
+    "esri/layers/TileLayer",
+    "esri/layers/MapImageLayer"
+  ],function(Map, MapView, TileLayer, MapImageLayer){
     //ADD A TILE OR MAP IMAGE LAYER
-
+   //to display the Tile Layers, we need to add it to the function after connected to the server
+      var NewEnglandLayer = new TileLayer({
+        url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/New%20England%20Smart%20Mapping%20Key%20Facts%2010km/FeatureServer/0"
+          });
     //DISPLAY VISIBLE DATA + Center it in initial display
 
     //MUST HAVE A WIDGET
 
-      var map = new Map({basemap:"national-geographic"});
+      var map = new Map({basemap:"national-geographic", layers:[NewEnglandLayer]});
       var view = new MapView({
       container: "viewDiv",
       map: map,
       zoom: 3,
-      center: (0,0)
+      center: (929883.251499999,1603465.1177)
     });
 
   //ADD QUERY FUNCTION
