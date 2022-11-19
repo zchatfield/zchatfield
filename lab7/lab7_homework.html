@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <!--Below contains metadata about the file -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- this title appears in the tab heading of the web page -->
+<title>Lab 7 Homework</title>
+  <!--Below is styling links-->
+    <link rel="stylesheet" type="text/css" href="css/main_style.css">
+  <style> html, body, #viewDiv{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+  </style>
+    <!-- this sets the styling for anything in the "viewDiv" window that appears on the webpage -->
+  <link rel="stylesheet"
+  href="https://js.arcgis.com/4.13/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.13/"></script>
+    <!-- these links connect to the map source and the stylesheet source for what will display on the page -->
+  <script>
+  //BELOW BEGINS CONNECTING TO THE DISPLAY MAP
+    require([
+    "esri/Map",
+    "esri/views/MapView"
+  ], function(Map, MapView){
+    //ADD A TILE OR MAP IMAGE LAYER
+
+    //DISPLAY VISIBLE DATA + Center it in initial display
+
+    //MUST HAVE A WIDGET
+
+      var map = new Map({basemap:"national-geographic"});
+      var view = new MapView({
+      container: "viewDiv",
+      map: map,
+      zoom: 3,
+      center: (0,0)
+    });
+
+  //ADD QUERY FUNCTION
+
+  });
+    </script>
+      <!-- after connecting to the links before, we're able to specify the map view based on available css options
+        and can set where on the map and at what zoom level the starting view will appear at -->
+</head>
+<body>
+  <div id="viewDiv"></div>
+    <!-- this calls upon the map variable created in the head, with the styling that was assigned to it.
+      this section will allow us to add more functions and modifications to the basemap created -->
+</body>
+<footer>
+  <!-- GET THE COPYRIGHT TO SHOW-->
+    <div id="copyright_map">
+        <script>
+          // this is used to embeds code - usually referencing JavaScript
+          var today = new Date();
+          // this is used to identify what today's date is at the time of
+          //opening the website
+          var year = today.getFullYear();
+          // this identifies what the year is on the date of accessing the website
+          document.writeln("Copyright &copy; " + year);
+        </script>
+        </div>
+</footer>
+</html>
