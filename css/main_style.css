@@ -112,6 +112,7 @@ and also changed (increased) the size of the text. */
 .dropdown {
   position: relative;
   display: inline-block;
+  padding: 20px;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -139,4 +140,4 @@ and also changed (increased) the size of the text. */
 .dropdown:hover .dropdown-content {display: block;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #f5f5f5;}
+.dropdown:hover .dropbtn {background-color:#018571;}
