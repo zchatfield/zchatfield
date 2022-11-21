@@ -33,7 +33,6 @@
         //url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/New%20England%20Smart%20Mapping%20Key%20Facts%2010km/FeatureServer/0"
         url:"https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/USPlaceNames_tiles/MapServer"
       });
-    //DISPLAY VISIBLE DATA + Center it in initial display
 
     //MUST HAVE A WIDGET
 
@@ -41,11 +40,12 @@
       var view = new MapView({
       container: "viewDiv",
       map: map,
-      zoom: 3,
-      center: (1980,960)
+      zoom: 4.25,
+      center: [-100.943009, 39.311510] //DISPLAY VISIBLE DATA + Center it in initial display
     });
 
   //ADD QUERY FUNCTION
+
 
   });
     </script>
