@@ -25,24 +25,24 @@
     require([
     "esri/Map",
     "esri/views/MapView",
-    "esri/layers/TileLayer",
-    "esri/layers/MapImageLayer"
-  ],function(Map, MapView, TileLayer, MapImageLayer){
+    "esri/layers/TileLayer"
+  ],function(Map, MapView, TileLayer){
     //ADD A TILE OR MAP IMAGE LAYER
    //to display the Tile Layers, we need to add it to the function after connected to the server
-      var NewEnglandLayer = new TileLayer({
-        url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/New%20England%20Smart%20Mapping%20Key%20Facts%2010km/FeatureServer/0"
-          });
+      var USAlayer = new TileLayer({
+        //url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/New%20England%20Smart%20Mapping%20Key%20Facts%2010km/FeatureServer/0"
+        url:"https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/USPlaceNames_tiles/MapServer"
+      });
     //DISPLAY VISIBLE DATA + Center it in initial display
 
     //MUST HAVE A WIDGET
 
-      var map = new Map({basemap:"national-geographic", layers:[NewEnglandLayer]});
+      var map = new Map({basemap:"national-geographic", layers:[USAlayer]});
       var view = new MapView({
       container: "viewDiv",
       map: map,
       zoom: 3,
-      center: (929883.251499999,1603465.1177)
+      center: (1980,960)
     });
 
   //ADD QUERY FUNCTION
