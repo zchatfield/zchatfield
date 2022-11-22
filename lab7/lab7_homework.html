@@ -6,11 +6,7 @@
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
   <!-- this title appears in the tab heading of the web page -->
 <title>Lab 7 Homework</title>
-<!--Below is styling links -->
-<link rel="stylesheet"
-href="https://js.arcgis.com/4.13/esri/css/main.css">
-<script src="https://js.arcgis.com/4.13/"></script>
-  <!-- these links connect to the map source and the stylesheet source for what will display on the page -->
+  <!-- DIV STYLING -->
   <style> html, body, #viewDiv{
     padding: 0;
     margin: 0;
@@ -19,7 +15,7 @@ href="https://js.arcgis.com/4.13/esri/css/main.css">
   }
 
   #optionsDiv{
-    background-color: dimgray;
+    background-color: green;
     color: white;
     padding: 18px; width: 350px;
   }
@@ -32,112 +28,142 @@ href="https://js.arcgis.com/4.13/esri/css/main.css">
   .esri-popup .esri-popup-body .esri-popup-content{
     font-size: 14px;
   }
+
+  #copyright_map{
+    position: relative;
+    width: 1000px;
+    text-align: center;
+    bottom: 35px;
+    padding:inherit;
+  }
 </style>
-    <!-- this sets the styling for anything in the "viewDiv" and "OptionsDiv" window that appears on the webpage -->
-  <script>
+  <!--Below is styling links -->
+<link rel="stylesheet"
+    href="https://js.arcgis.com/4.13/esri/css/main.css">
+<script src="https://js.arcgis.com/4.13/"></script>
+<script>
   //BELOW BEGINS CONNECTING TO THE DISPLAY MAP
     require([
     "esri/Map",
     "esri/views/MapView",
     "esri/layers/TileLayer",
-    "esri/layers/GraphicsLayer",
     "esri/widgets/Compass",
+    "esri/layers/MapImageLayer",
+    "esri/layers/GraphicsLayer",
     "esri/tasks/QueryTask",
     "esri/tasks/support/Query",
     "dojo/_base/array",
     "dojo/dom",
     "dojo/on",
     "dojo/domReady!"
-  ],function(Map, MapView, TileLayer, GraphicsLayer, Compass, QueryTask, Query, arrayUtils, dom, on){
+  ],function(Map, MapView, TileLayer, Compass, GraphicsLayer, MapImageLayer, QueryTask, Query, arrayUtils, dom, on){
     //ADD A TILE OR MAP IMAGE LAYER
    //to display the Tile Layers, we need to add it to the function after connected to the server
       var USAlayer = new TileLayer({
         url:"https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/USPlaceNames_tiles/MapServer"
-      });
-      var map = new Map({basemap:"national-geographic", layers:[USAlayer]});
+      }); // Connects to tile layer source
+      //MUST HAVE A WIDGET
+      // adds the compass to the top left corner of the MapView
+      let compass = new Compass({
+      view: view
+    }); // I got this widget to appear, but then it stopped appearing as I tried to add the query code. I'm struggling to fix it.
+      var map = new Map({basemap:"national-geographic", layers:[USAlayer]}); //indicate what basemap and layers should be displayed
       var view = new MapView({
       container: "viewDiv",
       map: map,
-      zoom: 4.25,
+      zoom: 4.25, // sets initial map view
       center: [-100.943009, 39.311510] //DISPLAY VISIBLE DATA + Center it in initial display
     });
-  //MUST HAVE A WIDGET
-  // adds the compass to the top left corner of the MapView
-    let compass = new Compass({
-  view: view
-    });
 
-//BELOW IS FOR THE QUERY 
-view.ui.add(compass, "top-left");
-    view.when(function(){
-      view.ui.add("optionsDiv","bottom-right");
-      on(dom.byId("doBtn"),"click",doQuery);
-    });
+//BELOW IS FOR THE QUERY
+var NameRenderer = {
+  type:"simple",
+  symbol:{
+    type:"simple-marker",
+    size: 4,
+    color: "red",
+    style: "circle",
+  }
+};
 
-    var attributeName = dom.byId("attSelect");
-    var expressionSign = dom.byId("signSelect");
-    var value = dom.byId("valSelect");
-
-    function doQuery(){
-      resultsLayer.removeAll();
-      params.where = attributeName.value + expressionSign.value + value.value;
-      qTask.execute(params)
-      .then(getResults)
-      .catch(promiseRejected);
-    }
-
-    function getResults(response){
-      var popResults = arrayUtils.map(response.features, function(feature){
-        feature.popupTemplate = popupTemplate;
-        return feature;
-      });
-
-      resultsLayer.addMany(popResults);
-
-      view.goTo(popResults).then(function(){
-        view.popup.open({
-          features: popResults,
-          featureMenuOpen:true,
-          updateLocationEnabled:true
-        });
-      });
-
-      dom.byId("printResults").innerHTML = popResults.length + "results found!";
-    }
-
-    function promiseRejected(error){
-      console.error("Promise rejected: ", error.message);
-    }
-
+var NameLayer = new MapImageLayer({
+  url:"https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/USPlaceNames_tiles/MapServer",
+  sublayers:[{
+    id:0,
+    renderer: NameRenderer,
+    opacity: 0.4
+  }]
+});
 //this section is to display the query button and output
-var popUrl = "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/USPlaceNames_tiles/MapServer";
+var popUrl = "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/USPlaceNames_tiles/MapServer/0";
 
 var popupTemplate = {
-  title: "{NAME}",
-  fieldInfos: [{
-    fieldName: "NAME",
+  title:"{NAME}",
+  fieldInfos:[{
+    fieldName:"NAME",
     label: "NAME",
     format:{
       places:0,
-      digitSeperator: true
+      digitSeperator:true
     }
   }],
-  content: "<b>City Name:"+"</b>{NAME}"
+  content:
+  "<b>Place Name:"+"</b>{NAME}"+
+  "<br><b>Latitude:</b>{Latitude}"+
+  "<br><b>Longitude:</b>{Longitude}"
 };
 
 var resultsLayer = new GraphicsLayer();
 
 var qTask = new QueryTask({
-  url:popUrl
+  url: popUrl
 });
 
 var params = new Query({
-  returnGeometry: true,
-  outfields:["*"]
+  returnGeometry:true,
+  outFields:["*"]
+});
+view.when(function(){
+  view.ui.add("optionsDiv","top-right");
+  on(dom.byId("doBtn"),"click",doQuery);
 });
 
+var attributeName = dom.byId("attSelect");
+var expressionSign = dom.byId("signSelect");
+var value = dom.byId("valSelect");
 
+function doQuery(){
+  resultsLayer.removeAll();
+  params.where = attributeName.value + expressionSign.value + value.value;
+  qTask.execute(params)
+  .then(getResults)
+  .catch(promiseRejected);
+}
+
+function getResults(response){
+  var popResults = arrayUtils.map(response.features, function(feature){
+    feature.popupTemplate = popupTemplate;
+    return feature;
   });
+
+
+  resultsLayer.addMany(popResults);
+
+  view.goTo(popResults).then(function(){
+    view.popup.open({
+      features: popResults,
+      featureMenuOpen:true,
+      updateLocationEnabled:true
+    });
+  });
+
+  dom.byId("printResults").innerHTML = popResults.length + "results found!";
+}
+
+function promiseRejected(error){
+  console.error("Promise rejected: ", error.message);
+}
+});
     </script>
       <!-- after connecting to the links before, we're able to specify the map view based on available css options
         and can set where on the map and at what zoom level the starting view will appear at -->
@@ -149,23 +175,32 @@ var params = new Query({
 
   <!-- ADD QUERY FUNCTION -->
 <!-- this section is to connect to data values for the query -->
-  <div class="esri-widget" id="OptionsDiv">
-    <h2>Common Place Names in the US</h2>
-    <select class="esri-widget" id="attSelect">
-      <option value="NAME">Name consists of</option>
-    <!-- can name values from data above-->
-    </select>
-    <br>
-    <br>
-    <button class="esri-widget" id="doBtn">Do Query</button>
-    <br>
-    <p><span id="orintResults"></span><p>
-  </div>
+<!--this calls upon the Div section styling set in the head and creates a window with the content below displayed-->
+<div class="esri-widget" id="optionsDiv">
+  <h2>Common Place Names in the US</h2>
+  <select class="esri-widget" id="attSelect">
+    <option value="NAME">Place Name</option>
+  </select>
+  <select class="esri-widget" id="signSelect">
+    <option value="=">is</option>
+  </select>
+  <select class="esri-widget" id="valSelect">
+    <option value="Gap">Gap</option>
+    <option value="Pass">Pass</option>
+    <option value="Notch">Notch</option>
+    <option value="Saddle">Saddle</option>
+  </select>
+  <br>
+  <br>
+  <button class="esri-widget" id="doBtn">Do Query</button>
+  <br>
+  <p><span id="orintResults"></span></p>
+</div>
 
 </body>
 
 <footer>
-  <!-- GET THE COPYRIGHT TO SHOW
+  <!-- GET THE COPYRIGHT TO SHOW -->
     <div id="copyright_map">
         <script>
           // this is used to embeds code - usually referencing JavaScript
@@ -176,6 +211,6 @@ var params = new Query({
           // this identifies what the year is on the date of accessing the website
           document.writeln("Copyright &copy; " + year);
         </script>
-        </div> -->
+    </div>
 </footer>
 </html>
