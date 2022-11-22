@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>fetch example</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
+
+const key = 'e0468fb1f425a8789e7bf7834c7ada3a';
+///////////////////////////////////////////////
+function weathercrawler(cityID ) {
+//////////////////////////////////////////////
+fetch('https://api.openweathermap.org/data/2.5/weather?id=' + cityID + '&appid=' + key)
+.then(function(resp) { return resp.json() }) // Convert data to json
+.then(function(data){
+  console.log(data);
+////////////////////
+  drawWeather(data);
+////////////////////
+});
+}
+///////////////////////////////////////////////////
+function drawWeather( d ) {
+  var tempg = (d.main.temp);
+  document.getElementById('temp').innerHTML = tempg;
+
+  function drawWeather( d ) {
+    var feelslike = (d.main.feels_like);
+  document.getElementById('feels_like').innerHTML = feelslike;
+
+  function drawWeather( d ) {
+    var humidity = (d.main.humidity);
+  document.getElementById('humidity').innerHTML = humidity; 
+}
+window.onload = function() {
+ weathercrawler(1704129);
+}
+///////////////////////////////////////////////////////////////////////////////////
+
+
+</script>
+
+
+
+
+</body>
+</html>

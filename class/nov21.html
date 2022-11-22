@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>fetch example</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
+
+fetch('test1.txt',  {mode:'no-cors'})
+.then(response => response.text())
+.then(textString => {
+    console.log(textString);
+});
+///////////////////////////////////////////////////////////////////////////////////
+
+
+</script>
+
+
+
+
+</body>
+</html>
