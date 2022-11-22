@@ -6,7 +6,7 @@
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
   <!-- this title appears in the tab heading of the web page -->
 <title>Lab 7 Homework</title>
-  <!-- DIV STYLING -->
+<!-- DIV STYLING -->
   <style> html, body, #viewDiv{
     padding: 0;
     margin: 0;
@@ -62,11 +62,6 @@
       var USAlayer = new TileLayer({
         url:"https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/USPlaceNames_tiles/MapServer"
       }); // Connects to tile layer source
-      //MUST HAVE A WIDGET
-      // adds the compass to the top left corner of the MapView
-      let compass = new Compass({
-      view: view
-    }); // I got this widget to appear, but then it stopped appearing as I tried to add the query code. I'm struggling to fix it.
       var map = new Map({basemap:"national-geographic", layers:[USAlayer]}); //indicate what basemap and layers should be displayed
       var view = new MapView({
       container: "viewDiv",
@@ -74,7 +69,12 @@
       zoom: 4.25, // sets initial map view
       center: [-100.943009, 39.311510] //DISPLAY VISIBLE DATA + Center it in initial display
     });
-
+  //MUST HAVE A WIDGET
+    // adds the compass to the top left corner of the MapView
+    let compass = new Compass({
+    view: view
+    });
+    view.ui.add(compass, "top-left");
 //BELOW IS FOR THE QUERY
 var NameRenderer = {
   type:"simple",
@@ -214,3 +214,15 @@ function promiseRejected(error){
     </div>
 </footer>
 </html>
+
+<!--
+
+let query = featureLayer.createQuery();
+query.where = "STATE_NAME = 'Washington'";
+query.outFields = [ "STATE_NAME", "COUNTY_NAME", "POPULATION", "(POPULATION / AREA) as 'POP_DENSITY'" ];
+
+featureLayer.queryFeatures(query)
+  .then(function(response){
+     // returns a feature set with features containing the following attributes
+     // STATE_NAME, COUNTY_NAME, POPULATION, POP_DENSITY
+   });
